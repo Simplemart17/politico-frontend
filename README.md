@@ -1,2 +1,3 @@
 # politico-frontend
-Politico frontend using React
+
+Politico frontend using React.
