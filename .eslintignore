@@ -1,0 +1,8 @@
+/dist
+/node_modules
+/public
+.babelrc
+.prettierignore
+.prettierrc
+webpack.config.js
+src/index.js
