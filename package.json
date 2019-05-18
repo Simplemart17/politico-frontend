@@ -12,7 +12,7 @@
     "start:dev": "webpack-dev-server --mode development --open",
     "test": "jest",
     "test:coveralls": "jest -u | coveralls",
-    "test:watch": "jest --watch"
+    "test:dev": "jest --watch"
   },
   "husky": {
     "hooks": {
