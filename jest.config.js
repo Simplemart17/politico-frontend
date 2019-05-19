@@ -1,9 +1,11 @@
 module.exports = {
   clearMocks: true,
 
-  collectCoverageFrom: ['src/**/*.{js,jsx,mjs}'],
+  collectCoverage: true,
 
   coverageDirectory: 'coverage',
+
+  coverageReporters: ['text', 'lcov'],
 
   moduleFileExtensions: ['js', 'json', 'jsx'],
 
@@ -15,9 +17,9 @@ module.exports = {
 
   testPathIgnorePatterns: ['\\\\node_modules\\\\'],
 
-  testURL: 'http://localhost/5500/',
+  testURL: 'http://localhost:5500/',
 
   transformIgnorePatterns: ['<rootDir>/node_modules/'],
 
-  verbose: false,
+  verbose: true,
 };
