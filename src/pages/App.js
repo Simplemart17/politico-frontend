@@ -1,9 +1,15 @@
 import React from 'react';
+import {
+  BrowserRouter as Router, Switch, Route
+} from 'react-router-dom';
+import Index from './Index';
 
 const App = () => (
-  <div>
-    <h1>This is a Politico App.</h1>
-  </div>
+  <Router>
+    <Switch>
+      <Route path="/" exact component={Index} />
+    </Switch>
+  </Router>
 );
 
 export default App;
