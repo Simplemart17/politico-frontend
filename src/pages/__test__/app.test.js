@@ -1,16 +1,15 @@
-
 import React from 'react';
-import { shallow } from 'enzyme';
-import App from '../App';
+import { BrowserRouter } from 'react-router-dom';
+import { cleanup, render } from 'react-testing-library';
+import Index from '../Index';
 
-function setup() {
-  const wrapper = shallow(<App />);
-  return { wrapper };
-}
+afterEach(cleanup);
 
-describe('Welcome Message Test', () => {
-  it('Should render message', () => {
-    const { wrapper } = setup();
-    expect(wrapper.find('h1').exists()).toBe(true);
-  });
+test('renders <Index /> component', () => {
+  const { getByText } = render(
+      <BrowserRouter>
+        <Index />
+      </BrowserRouter>
+  );
+  expect(getByText('This is a Politico App.').tagName).toBe('H1');
 });
