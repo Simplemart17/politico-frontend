@@ -7,7 +7,7 @@ import cardContent from '../utils/indexCardContent';
 const Index = () => (
   <Fragment>
     <Header />
-    <div className='showcase '>
+    <div className='showcase'>
       <h2 className='showcase-title'>Welcome to <span className='col-green-black'>Politico</span></h2>
       <div className='showcase-text large-text page-size center nav-center'><p>Politico is a platform designed for both the politicans and citizens. Politico enables citizens give their mandate to politicians running for different government offices while building trust in the process through tranparency.</p>
       </div>
