@@ -309,7 +309,7 @@ a {
     padding: 0 10px;
 }
 
-.reg-btn input {
+.reg-btn .button {
     cursor: pointer;
     width: 100px;
     height: 40px;
@@ -317,7 +317,7 @@ a {
     margin-top: 20px;
 }
 
-.reg-btn input:hover {
+.reg-btn .button:hover {
     opacity: 0.8;
     transition: 0.7s;
 }
@@ -370,16 +370,27 @@ a {
     display: grid;
 }
 
-.form-btn input {
+.form-btn .button {
     cursor: pointer;
     border: none;
     margin-top: 24px;
 }
 
-.form-btn input:hover {
+.form-btn .button:hover {
     background: #87bd70;
     transition: 0.6s;
     box-shadow: 0px 2px 2px #888888;
+}
+
+.icon {
+    position: relative;
+    top: 29px;
+    left: 10px;
+    color: #304e35;
+}
+
+.form-field {
+    padding-left: 30px !important;
 }
 
 /* Reset password */
