@@ -1,11 +1,27 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 import Button from '../Button/index';
+import { signInAction } from '../../state/authentication/actions';
 
-const LoginForm = props => {
+const LoginForm = ({ loginUser }) => {
   const [formInput, setFormInput] = useState({
-    email: ''
+    email: '',
+    password: ''
   });
+
+  const { email, password } = formInput;
+
+  const handleSubmit = async event => {
+    event.preventDefault();
+    loginUser(formInput);
+  };
+
+  const handleChange = event => {
+    event.persist();
+    const { name, value } = event.target;
+    setFormInput(() => ({ ...formInput, [name]: value }));
+  };
+
   return (
     <div>
       <div className='form-header'>
@@ -15,12 +31,14 @@ const LoginForm = props => {
       </div>
 
       <div className='form-wrapper login-form'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <i className='fa fa-envelope icon' />
           <input
             className='form-field'
             type='email'
             name='email'
+            value={email}
+            onChange={handleChange}
             placeholder='Email Address' />
 
           <i className='fa fa-lock icon' />
@@ -28,6 +46,8 @@ const LoginForm = props => {
             className='form-field'
             type='password'
             name='password'
+            value={password}
+            onChange={handleChange}
             placeholder='Password' />
 
           <div className='form-btn center'>
@@ -39,4 +59,10 @@ const LoginForm = props => {
   );
 };
 
-export default LoginForm;
+const mapStateToProps = state => ({
+  loginState: state.auth.signin
+});
+
+export default connect(mapStateToProps, {
+  loginUser: signInAction
+})(LoginForm);
