@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signOutUser } from '../../state/authentication/actions';
 
-const Header = ({ signinState, signOut, history }) => (
+export const Header = ({ signinState, signOut, history }) => (
   <div className='nav'>
     <div className='nav-center'>
       <div className='nav-header'>
