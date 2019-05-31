@@ -61,7 +61,6 @@ export const signInAction = (login, redirect) => async dispatch => {
     setLocalStorage('token', token);
     setAxiosHeader(token);
     if (decodedToken.isAdmin === false) {
-      console.log(decodedToken.isAdmin);
       dispatch(signInSuccess(user));
       return redirect.push('/profile');
     }

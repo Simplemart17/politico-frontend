@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const SideBar = () => {
   let test;
@@ -6,11 +7,11 @@ const SideBar = () => {
     <div className='sidebar'>
       <div className='sidebar-menu'>
         <ul>
-          <li className='active profile-nav'><a href='#'>Dashboard</a></li>
-          <li className='modal-link profile-nav' onClick={test}>The Candidates</li>
-          <li className='modal-link profile-nav' onClick={test}>Give Your Mandate</li>
-          <li className='modal-link profile-nav' onClick={test}>Interest Form</li>
-          <li className='modal-link profile-nav' onClick={test}>Election Result</li>
+          <li className='active profile-nav'><Link to='profile'>Dashboard</Link></li>
+          <li className='modal-link profile-nav' onClick={test}>Candidates</li>
+          <li className='modal-link profile-nav' onClick={test}>Vote</li>
+          <li className='modal-link profile-nav' onClick={test}>Register</li>
+          <li className='modal-link profile-nav' onClick={test}>Result</li>
         </ul>
       </div>
     </div>

@@ -20,7 +20,7 @@ const Header = ({ signinState, signOut, history }) => (
       {signinState
         ? <div className='nav-links'>
           <Link to='#' onClick={() => signOut(history)}>Sign Out</Link>
-          <Link to='profile'>Profile</Link>
+          <Link to='profile'>Dashboard</Link>
         </div>
         : <div className='nav-links'>
           <Link to='login'>Sign In</Link>
