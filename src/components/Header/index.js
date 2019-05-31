@@ -1,7 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { signOutUser } from '../../state/authentication/actions';
 
-const Header = () => (
+const Header = ({ signinState, signOut, history }) => (
   <div className='nav'>
     <div className='nav-center'>
       <div className='nav-header'>
@@ -15,12 +17,21 @@ const Header = () => (
         </label>
       </div>
       <input type='checkbox' id='nav-check' />
-      <div className='nav-links'>
-        <Link to='login'>Sign In</Link>
-        <Link to='register'>Register</Link>
-      </div>
+      {signinState
+        ? <div className='nav-links'>
+          <Link to='#' onClick={() => signOut(history)}>Sign Out</Link>
+          <Link to='profile'>Profile</Link>
+        </div>
+        : <div className='nav-links'>
+          <Link to='login'>Sign In</Link>
+          <Link to='register'>Register</Link>
+        </div>}
     </div>
   </div>
 );
 
-export default Header;
+const mapStateToProps = state => ({
+  signinState: state.auth.signin.id
+});
+
+export default connect(mapStateToProps, { signOut: signOutUser })(withRouter(Header));

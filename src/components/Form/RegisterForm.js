@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Button from '../Button/index';
 import { registerAction } from '../../state/authentication/actions';
 
-const RegisterForm = ({ createSignUp }) => {
+const RegisterForm = ({ createSignUp, history }) => {
   const [formInput, setFormInput] = useState({
     firstname: '',
     lastname: '',
@@ -18,7 +19,7 @@ const RegisterForm = ({ createSignUp }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    createSignUp(formInput);
+    createSignUp(formInput, history);
   };
 
   const handleChange = event => {
@@ -99,4 +100,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   createSignUp: registerAction
-})(RegisterForm);
+})(withRouter(RegisterForm));

@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import Button from '../Button/index';
 import { signInAction } from '../../state/authentication/actions';
 
-const LoginForm = ({ loginUser }) => {
+const LoginForm = ({ loginUser, history }) => {
   const [formInput, setFormInput] = useState({
     email: '',
     password: ''
@@ -13,7 +14,7 @@ const LoginForm = ({ loginUser }) => {
 
   const handleSubmit = async event => {
     event.preventDefault();
-    loginUser(formInput);
+    loginUser(formInput, history);
   };
 
   const handleChange = event => {
@@ -26,7 +27,7 @@ const LoginForm = ({ loginUser }) => {
     <div>
       <div className='form-header'>
         <div className='form-grid'>
-          <input className='form-inactive center col-white' value='Enter Your Login Details' />
+          <div className='form-head center col-white'> Enter Your Login Details</div>
         </div>
       </div>
 
@@ -50,8 +51,8 @@ const LoginForm = ({ loginUser }) => {
             onChange={handleChange}
             placeholder='Password' />
 
-          <div className='form-btn center'>
-            <Button className='col-white bg-green button'>Sign In</Button>
+          <div className='form-btn center '>
+            <Button className='center-box col-white bg-green button '>Sign In</Button>
           </div>
         </form>
       </div>
@@ -65,4 +66,4 @@ const mapStateToProps = state => ({
 
 export default connect(mapStateToProps, {
   loginUser: signInAction
-})(LoginForm);
+})(withRouter(LoginForm));

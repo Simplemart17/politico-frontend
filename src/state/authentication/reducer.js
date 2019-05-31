@@ -1,7 +1,7 @@
 import { initialState } from './state';
 import {
   REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE, SIGN_IN_SUCCESS,
-  SIGN_IN_FAILURE
+  SIGN_IN_FAILURE, SIGN_OUT
 } from './actionTypes';
 
 export default (state = initialState, action) => {
@@ -13,14 +13,14 @@ export default (state = initialState, action) => {
         ...state,
         registering: false,
         registered: true,
-        signup: action.user,
+        signin: action.payload
       };
     case REGISTER_FAILURE:
       return {
         ...state,
         registering: false,
         registered: false,
-        error: action.error
+        error: action.payload
       };
     case SIGN_IN_SUCCESS:
       return {
@@ -31,6 +31,11 @@ export default (state = initialState, action) => {
       return {
         ...state,
         signin: action.payload
+      };
+    case SIGN_OUT:
+      return {
+        ...state,
+        signin: {}
       };
     default:
       return state;

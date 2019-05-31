@@ -64,6 +64,9 @@ a {
     text-align: center;
 }
 
+.center-box {
+    margin: 0 auto;
+}
 .justify {
     text-align: justify;
 }
@@ -308,6 +311,9 @@ a {
     display: inline-block;
     padding: 0 10px;
 }
+.reg-btn{
+    width: 90%;
+}
 
 .reg-btn .button {
     cursor: pointer;
@@ -366,10 +372,18 @@ a {
     border: none;
 }
 
+.form-head {
+    background-color: #7d8a7b;
+    padding: 10px 0;
+    border: none;
+}
+
 .form-grid {
     display: grid;
 }
-
+.form-btn{
+    width: 90%;
+}
 .form-btn .button {
     cursor: pointer;
     border: none;
