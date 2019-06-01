@@ -4,6 +4,7 @@ import Index from './Index';
 import Register from './Register';
 import Login from './Login';
 import Profile from './Profile';
+import Interest from './Interest';
 
 const App = () => (
   <Router>
@@ -12,6 +13,7 @@ const App = () => (
       <Route exact path='/register' component={Register} />
       <Route exact path='/login' component={Login} />
       <Route exact path='/profile' component={Profile} />
+      <Route exact path='/expression-of-interest' component={Interest} />
     </Switch>
   </Router>
 );

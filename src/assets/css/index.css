@@ -293,7 +293,7 @@ a {
     font-size: 14px;
 }
 
-.form-wrapper button {
+.form-wrapper button, .modal-content button {
     margin-top: 2%;
     font-size: 17px;
     height: 35px;
@@ -315,7 +315,11 @@ a {
     width: 90%;
 }
 
-.reg-btn .button {
+.submit-btn {
+    width: 100%;
+}
+
+.reg-btn .button, .submit-btn .button {
     cursor: pointer;
     width: 100px;
     height: 40px;
@@ -323,7 +327,7 @@ a {
     margin-top: 20px;
 }
 
-.reg-btn .button:hover {
+.reg-btn .button:hover, .submit-btn .button {
     opacity: 0.8;
     transition: 0.7s;
 }
@@ -585,7 +589,7 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus, select:focus
 }
 
 .modal-container {
-  padding: 60px;
+  padding: 30px;
 }
 
 .partyModal, .modal, .officeModal, .editModal, .petitionModal, .resultModal, .deleteModal, .officeListModal, .detailsModal, .voteModal {
@@ -601,11 +605,11 @@ input[type=text]:focus, input[type=password]:focus, textarea:focus, select:focus
 }
 
 .modal-content {
-  background-color: #fefefe;
-  margin: 5% auto 15% auto;
+  background-color: #f6f9f7;
+  margin: 10% auto 10% auto;
   border: none;
-  box-shadow: 2px 3px;
-  width: 70%;
+  box-shadow: 1px 1px 1px #888888;
+  width: 60%;
 }
 
 .offices {
