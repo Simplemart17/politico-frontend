@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { getPartyAction } from '../../state/party/actions';
 
 const PartyLists = ({ party, partyState }) => {
-  useEffect(() => {
-    party();
-  }, []);
+  useEffect(() => { party(); }, []);
   return (
     <div className='main-area bg-white'>
       <div>
@@ -31,10 +29,6 @@ const PartyLists = ({ party, partyState }) => {
   );
 };
 
-const mapStateToProps = ({ party }) => ({
-  partyState: party.partyData
-});
+const mapStateToProps = ({ party }) => ({ partyState: party.partyData });
 
-export default connect(mapStateToProps, {
-  party: getPartyAction
-})(PartyLists);
+export default connect(mapStateToProps, { party: getPartyAction })(PartyLists);

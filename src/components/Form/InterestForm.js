@@ -15,9 +15,6 @@ const InterestForm = ({
     office: '',
   });
 
-
-  // const { party, office } = formInput;
-
   const handleSubmit = async event => {
     event.preventDefault();
     createInterest(formInput);

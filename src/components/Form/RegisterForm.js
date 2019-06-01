@@ -94,10 +94,6 @@ const RegisterForm = ({ createSignUp, history }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  registerState: state.auth.signup
-});
+const mapStateToProps = ({ auth }) => ({ registerState: auth.signup });
 
-export default connect(mapStateToProps, {
-  createSignUp: registerAction
-})(withRouter(RegisterForm));
+export default connect(mapStateToProps, { createSignUp: registerAction })(withRouter(RegisterForm));

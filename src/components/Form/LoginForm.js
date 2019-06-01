@@ -60,10 +60,6 @@ const LoginForm = ({ loginUser, history }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  loginState: state.auth.signin
-});
+const mapStateToProps = ({ auth }) => ({ loginState: auth.signin });
 
-export default connect(mapStateToProps, {
-  loginUser: signInAction
-})(withRouter(LoginForm));
+export default connect(mapStateToProps, { loginUser: signInAction })(withRouter(LoginForm));
