@@ -22,10 +22,6 @@ const Userdetails = ({ profile, profileState }) => {
   );
 };
 
-const mapStateToProps = state => ({
-  profileState: state.profile.usersData
-});
+const mapStateToProps = ({ profile }) => ({ profileState: profile.usersData });
 
-export default connect(mapStateToProps, {
-  profile: getProfileAction
-})(Userdetails);
+export default connect(mapStateToProps, { profile: getProfileAction })(Userdetails);

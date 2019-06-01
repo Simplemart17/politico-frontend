@@ -34,8 +34,6 @@ export const Header = ({ signinState, signOut, history }) => (
   </div>
 );
 
-const mapStateToProps = state => ({
-  signinState: state.auth.signin.id
-});
+const mapStateToProps = ({ auth }) => ({ signinState: auth.signin.id });
 
 export default connect(mapStateToProps, { signOut: signOutUser })(withRouter(Header));

@@ -9,6 +9,7 @@ import { profile } from './profile';
 import { party } from './party';
 import { office } from './office';
 import { interest } from './interest';
+import { candidate } from './candidates';
 
 const middleware = process.env.NODE_ENV !== 'production' ? [logger, thunk] : [thunk];
 const rootReducer = combineReducers({
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
   [profile.stateKey]: profile.reducer,
   [party.stateKey]: party.reducer,
   [office.stateKey]: office.reducer,
-  [interest.stateKey]: interest.reducer
+  [interest.stateKey]: interest.reducer,
+  [candidate.stateKey]: candidate.reducer
 });
 
 const reduxDevTools = process.env.NODE_ENV === 'production' ? p => p : window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__();

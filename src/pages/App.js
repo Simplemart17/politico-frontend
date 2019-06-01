@@ -5,6 +5,7 @@ import Register from './Register';
 import Login from './Login';
 import Profile from './Profile';
 import Interest from './Interest';
+import Candidate from './Candidate';
 
 const App = () => (
   <Router>
@@ -14,6 +15,7 @@ const App = () => (
       <Route exact path='/login' component={Login} />
       <Route exact path='/profile' component={Profile} />
       <Route exact path='/expression-of-interest' component={Interest} />
+      <Route exact path='/candidates' component={Candidate} />
     </Switch>
   </Router>
 );
