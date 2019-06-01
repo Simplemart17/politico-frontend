@@ -19,12 +19,16 @@ export const Header = ({ signinState, signOut, history }) => (
       <input type='checkbox' id='nav-check' />
       {signinState
         ? <div className='nav-links'>
-          <Link to='#' onClick={() => signOut(history)}>Sign Out</Link>
           <Link to='profile'>Dashboard</Link>
+          <Link to='expression-of-interest' className='hidden'>Interest Form</Link>
+          <Link to='candidates' className='hidden'>Candidates</Link>
+          <Link to='vote' className='hidden'>Vote</Link>
+          <Link to='result' className='hidden'>Result</Link>
+          <Link to='#' onClick={() => signOut(history)}>Sign Out</Link>
         </div>
         : <div className='nav-links'>
           <Link to='login'>Sign In</Link>
-          <Link to='register'>Register</Link>
+          <Link to='register' >Register</Link>
         </div>}
     </div>
   </div>
