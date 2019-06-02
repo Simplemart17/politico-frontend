@@ -6,24 +6,30 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.right {
+    text-align: right
+}
+
 .hidden {
     display: none;
 }
 
-#success, #error_header, #error-header {
-    display: none;
-    margin: auto;
-    margin-top: 78px;
-    margin-bottom: -58px;
-    padding: 8px;
-    border-radius: 3px;
-    width: 50%;
+.error-page {
+    font-size: 4em;
+    margin: 15%;
 }
 
-#signup_success {
-    width: 90%;
-    display: none;
-    padding: 8px;
+.error-page h1 {
+    color: #6c6f6d;
+    text-align: center;
+}
+
+.error-page p {
+    font-size: 30px;
+}
+
+.error-page-link {
+    font-size: 20px;
 }
 
 .error {
