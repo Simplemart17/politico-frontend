@@ -2,6 +2,7 @@ import swal from 'sweetalert';
 import {
   GET_CANDIDATES_LIST_SUCCESS,
   GET_CANDIDATES_LIST_FAILURE,
+  GET_CANDIDATES_LIST_REQUEST,
   CREATE_CANDIDATE_VOTE_SUCCESS,
   CREATE_CANDIDATE_VOTE_FAILURE
 } from './actionTypes';
@@ -10,6 +11,10 @@ import axios from '../../utils/axios';
 export const getCandidateListSuccess = candidate => ({
   type: GET_CANDIDATES_LIST_SUCCESS,
   payload: candidate,
+});
+
+export const getCandidateRequest = () => ({
+  type: GET_CANDIDATES_LIST_REQUEST,
 });
 
 export const getCandidateListFailure = error => ({
@@ -28,6 +33,7 @@ export const voteCandidateFailure = error => ({
 });
 
 export const candidateListAction = () => async dispatch => {
+  dispatch(getCandidateRequest());
   try {
     const candidatesList = await axios.get('/registered');
     dispatch(getCandidateListSuccess(candidatesList.data.data));

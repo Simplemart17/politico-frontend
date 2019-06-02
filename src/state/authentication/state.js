@@ -1,4 +1,5 @@
 export const initialState = {
   registering: false,
-  signin: {}
+  signin: {},
+  isLoading: false
 };
