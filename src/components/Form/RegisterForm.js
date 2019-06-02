@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from '../Button/index';
 import { registerAction } from '../../state/authentication/actions';
+import Preloader from '../Loader/index';
 
-const RegisterForm = ({ createSignUp, history }) => {
+const RegisterForm = ({ createSignUp, isLoading, history }) => {
   const [formInput, setFormInput] = useState({
     firstname: '',
     lastname: '',
@@ -27,73 +28,80 @@ const RegisterForm = ({ createSignUp, history }) => {
     const { name, value } = event.target;
     setFormInput(() => ({ ...formInput, [name]: value }));
   };
-
   return (
-    <div className='form-wrapper'>
-      <div className='center'>
-        <h1>Register Here</h1>
+    <div>
+      <div className='form-wrapper'>
+        <div className='center'>
+          <h1>Register Here</h1>
+        </div>
+        <div>
+          <form onSubmit={handleSubmit}>
+            <i className='fa fa-user icon' />
+            <input
+              className='form-field'
+              type='text'
+              name='firstname'
+              value={firstname}
+              onChange={handleChange}
+              placeholder='First Name' />
+
+            <i className='fa fa-user icon' />
+            <input
+              className='form-field'
+              type='text'
+              name='lastname'
+              value={lastname}
+              onChange={handleChange}
+              placeholder='Last Name' />
+
+            <i className='fa fa-envelope icon' />
+            <input
+              className='form-field'
+              type='email'
+              name='email'
+              value={email}
+              onChange={handleChange}
+              placeholder='Email Address' />
+
+            <i className='fa fa-lock icon' />
+            <input
+              className='form-field'
+              type='password'
+              name='password'
+              value={password}
+              onChange={handleChange}
+              placeholder='Password' />
+
+            <i className='fa fa-lock icon' />
+            <input
+              className='form-field'
+              type='password'
+              name='confirmPassword'
+              value={confirmPassword}
+              onChange={handleChange}
+              placeholder='Confirm Password' />
+
+            <div className='reg-btn center'>
+              <div className='inline'>
+                <Button className='col-white bg-green button'>Submit</Button>
+              </div>
+              <div className='inline '>
+                <Button className='col-white bg-grey button'>Reset</Button>
+              </div>
+            </div>
+          </form>
+        </div>
       </div>
       <div>
-        <form onSubmit={handleSubmit}>
-          <i className='fa fa-user icon' />
-          <input
-            className='form-field'
-            type='text'
-            name='firstname'
-            value={firstname}
-            onChange={handleChange}
-            placeholder='First Name' />
-
-          <i className='fa fa-user icon' />
-          <input
-            className='form-field'
-            type='text'
-            name='lastname'
-            value={lastname}
-            onChange={handleChange}
-            placeholder='Last Name' />
-
-          <i className='fa fa-envelope icon' />
-          <input
-            className='form-field'
-            type='email'
-            name='email'
-            value={email}
-            onChange={handleChange}
-            placeholder='Email Address' />
-
-          <i className='fa fa-lock icon' />
-          <input
-            className='form-field'
-            type='password'
-            name='password'
-            value={password}
-            onChange={handleChange}
-            placeholder='Password' />
-
-          <i className='fa fa-lock icon' />
-          <input
-            className='form-field'
-            type='password'
-            name='confirmPassword'
-            value={confirmPassword}
-            onChange={handleChange}
-            placeholder='Confirm Password' />
-
-          <div className='reg-btn center'>
-            <div className='inline'>
-              <Button className='col-white bg-green button'>Submit</Button>
-            </div>
-            <div className='inline '>
-              <Button className='col-white bg-grey button'>Reset</Button>
-            </div>
-          </div>
-        </form>
+        {isLoading && (<div className='auth-loading'><Preloader /></div>)}
       </div>
     </div>
   );
 };
 
-const mapStateToProps = ({ auth }) => ({ registerState: auth.signup });
+const mapStateToProps = ({ auth }) => ({
+  registerState: auth.signin,
+  isLoading: auth.isLoading
+});
 
 export default connect(mapStateToProps, { createSignUp: registerAction })(withRouter(RegisterForm));

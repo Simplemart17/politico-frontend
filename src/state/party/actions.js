@@ -1,9 +1,13 @@
 import axios from '../../utils/axios';
-import { GET_PARTY_LIST_SUCCESS, GET_PARTY_LIST_FAILURE } from './actionTypes';
+import { GET_PARTY_LIST_SUCCESS, GET_PARTY_LIST_FAILURE, GET_PARTY_LIST_REQUEST } from './actionTypes';
 
 export const getPartySuccess = partylists => ({
   type: GET_PARTY_LIST_SUCCESS,
   payload: partylists,
+});
+
+export const getPartyRequest = () => ({
+  type: GET_PARTY_LIST_REQUEST,
 });
 
 export const getPartyFailure = error => ({
@@ -12,6 +16,7 @@ export const getPartyFailure = error => ({
 });
 
 export const getPartyAction = () => async dispatch => {
+  dispatch(getPartyRequest());
   try {
     const partyLists = await axios.get('/parties');
     const partyDetails = partyLists.data.data;

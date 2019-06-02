@@ -1,5 +1,6 @@
 export const initialState = {
   candidates: [],
   voteCandidate: {},
-  error: null
+  error: null,
+  isloading: false
 };

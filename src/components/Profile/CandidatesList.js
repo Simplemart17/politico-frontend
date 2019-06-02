@@ -2,8 +2,9 @@ import React, { useEffect, Fragment } from 'react';
 import { connect } from 'react-redux';
 import Sidebar from './SideBar';
 import { candidateListAction } from '../../state/candidates/actions';
+import Preloader from '../Loader/index';
 
-const CandidatesList = ({ getCandidates, candidateState }) => {
+const CandidatesList = ({ getCandidates, candidateState, isLoading }) => {
   useEffect(() => { getCandidates(); }, []);
   return (
     <Fragment>
@@ -16,35 +17,37 @@ const CandidatesList = ({ getCandidates, candidateState }) => {
       </div>
       <div className='profile-content'>
         <Sidebar />
-        <div className='table-area bg-white'>
-          <table>
-            <thead>
-              <tr>
-                <th scope='col'>Candidate Name</th>
-                <th scope='col'>Office Type</th>
-                <th scope='col'>Office Name</th>
-                <th scope='col'>Political Party</th>
-              </tr>
-            </thead>
-            {candidateState.map(data => (
-              <tbody key={data.id}>
+        {isLoading ? <div className='loading'><Preloader /></div>
+          : <div className='table-area bg-white'>
+            <table>
+              <thead>
                 <tr>
-                  <td data-label='Candidate:'>{data.firstname} {data.lastname}</td>
-                  <td data-label='Office Type:'>{data.officetype}</td>
-                  <td data-label='Office Name:'>{data.officename}</td>
-                  <td data-label='Political Party:'>{data.partyname}</td>
+                  <th scope='col'>Candidate Name</th>
+                  <th scope='col'>Office Type</th>
+                  <th scope='col'>Office Name</th>
+                  <th scope='col'>Political Party</th>
                 </tr>
-              </tbody>
-            ))}
-          </table>
-        </div>
+              </thead>
+              {candidateState.map(data => (
+                <tbody key={data.id}>
+                  <tr>
+                    <td data-label='Candidate:'>{data.firstname} {data.lastname}</td>
+                    <td data-label='Office Type:'>{data.officetype}</td>
+                    <td data-label='Office Name:'>{data.officename}</td>
+                    <td data-label='Political Party:'>{data.partyname}</td>
+                  </tr>
+                </tbody>
+              ))}
+            </table>
+          </div>}
       </div>
     </Fragment>
   );
 };
 
 const mapStateToProps = ({ candidate }) => ({
-  candidateState: candidate.candidates
+  candidateState: candidate.candidates,
+  isLoading: candidate.isLoading
 });
 
 export default connect(mapStateToProps, { getCandidates: candidateListAction })(CandidatesList);

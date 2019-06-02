@@ -1,5 +1,5 @@
 import {
-  REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE, SIGN_IN_SUCCESS,
+  REGISTER_REQUEST, REGISTER_SUCCESS, REGISTER_FAILURE, SIGN_IN_SUCCESS, SIGN_IN_REQUEST,
   SIGN_IN_FAILURE, SIGN_OUT
 } from './actionTypes';
 import axios, { setAxiosHeader } from '../../utils/axios';
@@ -24,6 +24,10 @@ export const signInSuccess = user => ({
   payload: user
 });
 
+export const signInRequest = () => ({
+  type: SIGN_IN_REQUEST,
+});
+
 export const signInFailure = error => ({
   type: SIGN_IN_FAILURE,
   payload: error
@@ -34,8 +38,8 @@ export const signOut = () => ({
 });
 
 export const registerAction = (newUser, redirect) => async dispatch => {
+  dispatch(registerRequest());
   try {
-    dispatch(registerRequest());
     const registeredUser = await axios.post('/auth/signup', newUser);
     const { token, user } = registeredUser.data.data[0];
     const decodedToken = decodeToken(token);
@@ -54,6 +58,7 @@ export const registerAction = (newUser, redirect) => async dispatch => {
 };
 
 export const signInAction = (login, redirect) => async dispatch => {
+  dispatch(signInRequest());
   try {
     const loginUser = await axios.post('/auth/login', login);
     const { token, user } = loginUser.data.data[0];
