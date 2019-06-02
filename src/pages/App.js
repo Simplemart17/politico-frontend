@@ -6,6 +6,7 @@ import Login from './Login';
 import Profile from './Profile';
 import Interest from './Interest';
 import Candidate from './Candidate';
+import Vote from './Vote';
 
 const App = () => (
   <Router>
@@ -16,6 +17,7 @@ const App = () => (
       <Route exact path='/profile' component={Profile} />
       <Route exact path='/expression-of-interest' component={Interest} />
       <Route exact path='/candidates' component={Candidate} />
+      <Route exact path='/vote' component={Vote} />
     </Switch>
   </Router>
 );

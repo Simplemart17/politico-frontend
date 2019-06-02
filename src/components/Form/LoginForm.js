@@ -12,7 +12,7 @@ const LoginForm = ({ loginUser, history }) => {
 
   const { email, password } = formInput;
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
     loginUser(formInput, history);
   };

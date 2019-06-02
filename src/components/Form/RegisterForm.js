@@ -17,7 +17,7 @@ const RegisterForm = ({ createSignUp, history }) => {
     firstname, lastname, email, password, confirmPassword
   } = formInput;
 
-  const handleSubmit = async event => {
+  const handleSubmit = event => {
     event.preventDefault();
     createSignUp(formInput, history);
   };
