@@ -8,6 +8,7 @@ import Interest from './Interest';
 import Candidate from './Candidate';
 import Vote from './Vote';
 import ErrorPage from './ErrorView';
+import Result from './Result';
 
 const App = () => (
   <Router>
@@ -19,6 +20,7 @@ const App = () => (
       <Route exact path='/expression-of-interest' component={Interest} />
       <Route exact path='/candidates' component={Candidate} />
       <Route exact path='/vote' component={Vote} />
+      <Route exact path='/result' component={Result} />
       <Route path='/*' component={ErrorPage}/>
     </Switch>
   </Router>
