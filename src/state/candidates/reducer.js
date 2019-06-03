@@ -30,11 +30,13 @@ export default (state = initialState, action) => {
     case CREATE_CANDIDATE_VOTE_SUCCESS:
       return {
         ...state,
+        isLoading: false,
         voteCandidate: action.payload,
       };
     case CREATE_CANDIDATE_VOTE_FAILURE:
       return {
         ...state,
+        isLoading: false,
         error: action.payload
       };
     default:

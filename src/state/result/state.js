@@ -1,3 +1,4 @@
 export const initialState = {
-  results: [],
+  results: {},
+  isLoading: false,
 };

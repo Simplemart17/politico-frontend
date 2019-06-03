@@ -43,9 +43,11 @@ export const candidateListAction = () => async dispatch => {
 };
 
 export const voteCandidateAction = voteForm => async dispatch => {
+  dispatch(getCandidateRequest());
   try {
     const voteCast = await axios.post('/votes', voteForm);
     dispatch(voteCandidateSuccess(voteCast.data));
+    dispatch(candidateListAction());
     swal({
       title: 'Voted Successfully',
       text: voteCast.data.message,

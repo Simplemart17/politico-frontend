@@ -20,8 +20,8 @@ const App = () => (
       <Route exact path='/expression-of-interest' component={Interest} />
       <Route exact path='/candidates' component={Candidate} />
       <Route exact path='/vote' component={Vote} />
-      <Route path='/*' component={ErrorPage}/>
       <Route exact path='/result' component={Result} />
+      <Route path='/*' component={ErrorPage}/>
     </Switch>
   </Router>
 );

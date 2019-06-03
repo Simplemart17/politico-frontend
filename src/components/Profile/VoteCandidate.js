@@ -2,8 +2,14 @@ import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { candidateListAction, voteCandidateAction } from '../../state/candidates/actions';
 import Button from '../Button/index';
+import Preloader from '../Loader/index';
 
-const VoteCandidate = ({ getCandidates, listCandidates, voteCandidate }) => {
+const VoteCandidate = ({
+  getCandidates,
+  listCandidates,
+  voteCandidate,
+  isLoading
+}) => {
   useEffect(() => { getCandidates(); }, []);
 
   return (
@@ -15,7 +21,8 @@ const VoteCandidate = ({ getCandidates, listCandidates, voteCandidate }) => {
       </div>
       <div>
         <div className='vote-area table-area bg-white'>
-          <table id='vote_lists'>
+        {isLoading ? <div className='loading'><Preloader /></div>
+          : <table>
             <caption>
               <span className='col-red'>*</span>
               Click vote button to vote for your preferred candidate.  <u><b>
@@ -41,17 +48,20 @@ const VoteCandidate = ({ getCandidates, listCandidates, voteCandidate }) => {
                     party: data.partyid,
                     office: data.officeid,
                     candidate: data.userid,
-                  })}>{data.status === 'vote' ? 'VOTE' : 'VOTED' }</Button></td>
+                  })}>{data.status.toUpperCase() }</Button></td>
                 </tr>
               </tbody>
             ))}
-          </table>
+          </table>}
         </div>
       </div>
     </div>
   );
 };
-const mapStateToProps = ({ candidate }) => ({ listCandidates: candidate.candidates });
+const mapStateToProps = ({ candidate }) => ({
+  listCandidates: candidate.candidates,
+  isLoading: candidate.isLoading
+});
 export default connect(mapStateToProps, {
   getCandidates: candidateListAction,
   voteCandidate: voteCandidateAction
