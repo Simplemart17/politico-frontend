@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import Sidebar from './SideBar';
 import { candidateListAction } from '../../state/candidates/actions';
@@ -7,7 +7,7 @@ import Preloader from '../Loader/index';
 const CandidatesList = ({ getCandidates, candidateState, isLoading }) => {
   useEffect(() => { getCandidates(); }, []);
   return (
-    <Fragment>
+    <>
       <div className='profile-header'>
         <div className='main-area center'>
           <div>
@@ -41,7 +41,7 @@ const CandidatesList = ({ getCandidates, candidateState, isLoading }) => {
             </table>
           </div>}
       </div>
-    </Fragment>
+    </>
   );
 };
 

@@ -1,11 +1,11 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../components/Header/index';
 import Footer from '../components/Footer';
 import cardContent from '../utils/indexCardContent';
 
 const Index = () => (
-  <Fragment>
+  <>
     <Header />
     <div className='showcase'>
       <h2 className='showcase-title'>Welcome to <span className='col-green-black'>Politico</span></h2>
@@ -27,7 +27,7 @@ const Index = () => (
       </div>
     </div>
     <Footer />
-  </Fragment>
+  </>
 );
 
 export default Index;
