@@ -26,7 +26,7 @@ const InterestForm = ({
   };
 
   return (
-    <div>
+    <>
       <form onSubmit={handleSubmit} className='modal-content'>
         <div className='modal-container'>
           <h1>Expression of Interest Form</h1>
@@ -59,7 +59,7 @@ const InterestForm = ({
           </div>
         </div>
       </form>
-    </div>
+    </>
   );
 };
 

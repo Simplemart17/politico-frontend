@@ -26,8 +26,7 @@ const PartyLists = ({ party, partyState, isLoading }) => {
           </div>
         ))}
       </div>}
-      <div className='center' id='empty_list'>
-      </div>
+      <div className='center' id='empty_list'></div>
     </div>
   );
 };
