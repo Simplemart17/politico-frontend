@@ -1,5 +1,14 @@
 import React from 'react';
-import { RingLoader } from 'react-spinners';
+import { RingLoader, PulseLoader } from 'react-spinners';
+
+export const ButtonSpinner = () => (
+  <PulseLoader
+    sizeUnit={'px'}
+    size={8}
+    margin={2}
+    color={'#4d7b51'}
+  />
+);
 
 const ContentLoader = () => (
   <RingLoader

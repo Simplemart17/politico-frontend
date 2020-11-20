@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import Button from '../Button/index';
 import { registerAction } from '../../state/authentication/actions';
-import Preloader from '../Loader/index';
+import { ButtonSpinner } from '../Loader/index';
 
 const RegisterForm = ({ createSignUp, isLoading, history }) => {
   const [formInput, setFormInput] = useState({
@@ -83,7 +83,7 @@ const RegisterForm = ({ createSignUp, isLoading, history }) => {
 
             <div className='reg-btn center'>
               <div className='inline'>
-                <Button className='col-white bg-green button'>Submit</Button>
+                <Button className='col-white bg-green button flex'>Submit <span>{isLoading && <ButtonSpinner />}</span></Button>
               </div>
               <div className='inline '>
                 <Button className='col-white bg-grey button'>Reset</Button>
@@ -91,9 +91,6 @@ const RegisterForm = ({ createSignUp, isLoading, history }) => {
             </div>
           </form>
         </div>
-      </div>
-      <div>
-        {isLoading && (<div className='auth-loading'><Preloader /></div>)}
       </div>
     </div>
   );

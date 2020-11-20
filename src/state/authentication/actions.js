@@ -69,8 +69,10 @@ export const signInAction = (login, redirect) => async dispatch => {
       dispatch(signInSuccess(user));
       return redirect.push('/profile');
     }
-    dispatch(signInSuccess(user));
-    return redirect.push('/admin-page');
+    if (decodedToken.isAdmin === true) {
+      dispatch(signInSuccess(user));
+      return redirect.push('/admin-page');
+    }
   } catch (error) {
     return dispatch(signInFailure(error.response));
   }

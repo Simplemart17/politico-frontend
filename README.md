@@ -4,4 +4,4 @@
 
 # Politico App
 
-Politico App using react .
+Politico App built with ReactJS .

@@ -1,4 +1,5 @@
 const HtmlWebPackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const path = require('path');
 
 module.exports = function () {
@@ -19,7 +20,7 @@ module.exports = function () {
           },
         },
         {
-          test: /\.(png|woff|woff2|eot|ttf|svg)$/,
+          test: /\.(woff(2)?|eot|ttf|otf|svg)$/,
           use: {
             loader: 'babel-loader',
             loader: 'url-loader?limit=100000'
@@ -27,7 +28,7 @@ module.exports = function () {
         },
         {
           test: /\.(css|scss)$/,
-          use: ['style-loader', 'css-loader', 'sass-loader'],
+          use: ['style-loader', 'css-loader', 'postcss-loader', 'sass-loader'],
         },
         {
           test: /\.(png|jp(e*)g|svg|gif)$/,
@@ -54,6 +55,7 @@ module.exports = function () {
         template: path.resolve(__dirname, './public', 'index.html'),
         filename: 'index.html',
       }),
+      new CleanWebpackPlugin(),
     ],
     stats: {
       colors: true,
